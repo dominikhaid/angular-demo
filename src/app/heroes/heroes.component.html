@@ -1,0 +1,214 @@
+<h2 nz-typography nzType="secondary" class="ant-text-center" i18n>My Heroes</h2>
+
+<div
+  id="splitView"
+  nz-row
+  nzJustify="space-around"
+  nzAlign="top"
+  [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 24 }"
+>
+  <div nz-col class="gutter-row" [nzSpan]="16">
+    <nz-divider i18n nzOrientation="left" nzText="Hero"></nz-divider>
+    <div class="inner-box">
+      <nz-list nzItemLayout="horizontal" [nzLoading]="loading">
+        <nz-list-item *ngFor="let hero of heroes">
+          <ng-container *ngIf="!hero.loading">
+            <nz-list-item-meta
+              [className]="
+                hero?.biography?.alignment === 'bad' ? 'bad' : 'good'
+              "
+              [nzAvatar]="hero?.image?.url"
+            >
+              <nz-list-item-meta-title>
+                <a
+                  routerLink="/detail/{{ hero.id }}"
+                  [className]="
+                    hero?.biography?.alignment === 'bad' ? 'bad' : 'good'
+                  "
+                  >{{ hero.id }}.&nbsp;{{ hero.name }}</a
+                >
+              </nz-list-item-meta-title>
+            </nz-list-item-meta>
+            <ul nz-list-item-actions>
+              <nz-list-item-action>
+                <a
+                  i18n
+                  nz-button
+                  routerLink="/detail/{{ hero.id }}"
+                  nzType="link"
+                  nzBlock
+                  >edit</a
+                >
+              </nz-list-item-action>
+              <nz-list-item-action>
+                <a i18n nz-button (click)="delete(hero)" nzType="link" nzBlock
+                  >remove</a
+                >
+              </nz-list-item-action>
+            </ul>
+          </ng-container>
+        </nz-list-item>
+      </nz-list>
+    </div>
+  </div>
+
+  <div nz-col class="gutter-row" [nzSpan]="6">
+    <nz-divider i18n nzOrientation="left" nzText="New Hero"></nz-divider>
+    <div class="inner-box">
+      <nz-card [nzCover]="coverTemplate">
+        <ng-template #coverTemplate>
+          <img [(src)]="heroImg.innerText" />
+        </ng-template>
+        <div id="heroCardEdit">
+          <!--General-->
+          <div id="heroGeneral">
+            <label i18n>Avatar:</label>
+            <p
+              #heroImg
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroImg.innerText"
+            >
+              url
+            </p>
+            <label i18n>Name:</label>
+            <p
+              #heroName
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroName.innerText"
+            >
+              Mailman
+            </p>
+          </div>
+          <!--Stats-->
+          <div id="herostats">
+            <label i18n>Intelligence:</label>
+            <p
+              #heroIntelligence
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroIntelligence.innerText"
+            >
+              0/100
+            </p>
+            <label i18n>Strength:</label>
+            <p
+              #heroStrength
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroStrength.innerText"
+            >
+              0/100
+            </p>
+            <label i18n>Speed:</label>
+            <p
+              #heroSpeed
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroSpeed.innerText"
+            >
+              0/100
+            </p>
+            <label i18n>Durability:</label>
+            <p
+              #heroDurability
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroDurability.innerText"
+            >
+              0/100
+            </p>
+            <label i18n>Power:</label>
+            <p
+              #heroPower
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroPower.innerText"
+            >
+              0/100
+            </p>
+            <label i18n>Combat:</label>
+            <p
+              #heroCombat
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroCombat.innerText"
+            >
+              0/100
+            </p>
+          </div>
+          <!--Info-->
+          <div id="heroInfo">
+            <label i18n>Fullname:</label>
+            <p
+              #heroFullname
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroFullname.innerText"
+            >
+              Super Hero
+            </p>
+            <label i18n>Occupation:</label>
+            <p
+              #heroOccupation
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroOccupation.innerText"
+            >
+              Mailman
+            </p>
+            <label i18n>Alignment:</label>
+            <p
+              #heroAlignment
+              nz-typography
+              nzEditable
+              [(nzContent)]="heroAlignment.innerText"
+            >
+              good/bad
+            </p>
+          </div>
+        </div>
+
+        <button
+          i18n
+          (click)="
+            add({
+              name: heroName.innerText,
+              powerstats: {
+                intelligence: heroIntelligence.innerText,
+                strength: heroStrength.innerText,
+                speed: heroSpeed.innerText,
+                durability: heroDurability.innerText,
+                power: heroPower.innerText,
+                combat: heroCombat.innerText
+              },
+              biography: {
+                fullname: heroFullname.innerText,
+                alignment: heroAlignment.innerText
+              },
+              work: { occupation: heroOccupation.innerText },
+              image: { url: heroImg.innerText }
+            })
+          "
+          nz-button
+          nzType="primary"
+          nzSize="large"
+          nzSearch
+          i18n
+        >
+          ADD
+        </button>
+
+        <ng-template #coverTemplate>
+          <img
+            alt="example"
+            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          />
+        </ng-template>
+      </nz-card>
+
+      <div></div>
+    </div>
+  </div>
+</div>

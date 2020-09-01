@@ -1,0 +1,61 @@
+<div *ngIf="hero">
+  <h2 i18n nz-typography nzType="secondary">
+    {{ hero.name | uppercase }}
+  </h2>
+  <nz-card nzHoverable style="width: 350px" [nzCover]="coverTemplate">
+    <div class="content" id="heroCardEdit">
+      <!--General-->
+      <div id="heroGeneral">
+        <label i18n>Name:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.name"></p>
+      </div>
+      <!--Stats-->
+      <div id="herostats">
+        <label i18n>Intelligence:</label>
+        <p
+          nz-typography
+          nzEditable
+          [(nzContent)]="hero.powerstats.intelligence"
+        ></p>
+        <label i18n>Strength:</label>
+        <p
+          nz-typography
+          nzEditable
+          [(nzContent)]="hero.powerstats.strength"
+        ></p>
+        <label i18n>Speed:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.powerstats.speed"></p>
+        <label i18n>Durability:</label>
+        <p
+          nz-typography
+          nzEditable
+          [(nzContent)]="hero.powerstats.durability"
+        ></p>
+        <label i18n>Power:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.powerstats.power"></p>
+        <label i18n>Combat:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.powerstats.combat"></p>
+      </div>
+      <!--Info-->
+      <div id="heroInfo">
+        <label i18n>Fullname:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.biography.fullname"></p>
+        <label i18n>Occupation:</label>
+        <p nz-typography nzEditable [(nzContent)]="hero.work.occupation"></p>
+        <label i18n>Alignment:</label>
+        <p
+          nz-typography
+          nzEditable
+          [(nzContent)]="hero.biography.alignment"
+        ></p>
+      </div>
+      <nz-divider></nz-divider>
+      <button i18n nz-button nzSize="large" nzType="primary" (click)="save()">
+        save
+      </button>
+    </div>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img alt="example" [src]="hero.image.url" />
+  </ng-template>
+</div>

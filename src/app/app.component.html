@@ -1,0 +1,104 @@
+<nz-layout>
+  <nz-header><h1 i18n nz-typography>Tour of Heroes</h1> </nz-header>
+  <nz-layout>
+    <nav>
+      <div
+        nz-row
+        nzJustify="space-around"
+        nzAlign="middle"
+        [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 24 }"
+      >
+        <div nz-col class="gutter-row" [nzSpan]="18">
+          <div class="inner-box">
+            <nz-breadcrumb>
+              <nz-breadcrumb-item>
+                <a i18n [routerLink]="['/dashboard']">Dashboard</a>
+              </nz-breadcrumb-item>
+              <nz-breadcrumb-item>
+                <a i18n [routerLink]="['/heroes']">Heroes</a>
+              </nz-breadcrumb-item>
+              <nz-breadcrumb-item>
+                <a
+                  href="https:/www.dominikhaid.de/app/angular-demo/en"
+                  target="_blank"
+                  >EN</a
+                >
+              </nz-breadcrumb-item>
+              <nz-breadcrumb-item>
+                <a
+                  href="https:/www.dominikhaid.de/app/angular-demo/de"
+                  target="_blank"
+                  >DE</a
+                >
+              </nz-breadcrumb-item>
+            </nz-breadcrumb>
+          </div>
+        </div>
+        <div nz-col class="gutter-row" [nzSpan]="6">
+          <div class="inner-box"><app-hero-search></app-hero-search></div>
+        </div>
+      </div>
+    </nav>
+
+    <nz-content
+      ><nz-divider></nz-divider>
+      <div [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+
+      <app-messages></app-messages>
+      <nz-divider></nz-divider>
+      <button i18n nz-button nzSize="large" nzType="default" (click)="goBack()">
+        go back
+      </button>
+    </nz-content>
+  </nz-layout>
+  <nz-footer>
+    <div
+      nz-row
+      nzJustify="space-around"
+      nzAlign="middle"
+      [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 24 }"
+    >
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-divider i18n nzOrientation="left" nzText="Sitemap"></nz-divider>
+        <div class="inner-box">
+          <nz-breadcrumb>
+            <nz-breadcrumb-item>
+              <a [routerLink]="['/dashboard']" i18n>Dashboard</a>
+            </nz-breadcrumb-item>
+            <nz-breadcrumb-item>
+              <a [routerLink]="['/heroes']" i18n>Heroes</a>
+            </nz-breadcrumb-item>
+            <nz-breadcrumb-item>
+              <a
+                href="https:/www.dominikhaid.de/app/angluar-demo/en"
+                target="_blank"
+                >EN</a
+              >
+            </nz-breadcrumb-item>
+            <nz-breadcrumb-item>
+              <a
+                href="https:/www.dominikhaid.de/app/angluar-demo/de"
+                target="_blank"
+                >DE</a
+              >
+            </nz-breadcrumb-item>
+          </nz-breadcrumb>
+        </div>
+      </div>
+      <div nz-col class="gutter-row ant-text-center" [nzSpan]="12"></div>
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <nz-divider></nz-divider>
+        <div class="inner-box"></div>
+      </div>
+    </div>
+
+    <p nzOrientation="center" class="height-50 ant-text-center" i18n>
+      &copy;Dominik Haid
+      <a target="_blank" href="https://www.dominikhaid.de"
+        >www.dominikhaid.de</a
+      >
+    </p>
+  </nz-footer>
+</nz-layout>

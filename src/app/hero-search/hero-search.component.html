@@ -1,0 +1,30 @@
+<div id="search-component">
+  <nz-input-group nzSearch nzSize="large">
+    <input
+      i18n
+      #searchBox
+      id="search-box"
+      (input)="search(searchBox.value)"
+      type="text"
+      nz-input
+      placeholder="Heros search"
+    />
+  </nz-input-group>
+
+  <nz-list
+    i18n
+    *ngIf="searchBox.value.length"
+    nzBordered
+    nzHeader="Search results"
+  >
+    <nz-list-item *ngFor="let hero of heroes$ | async">
+      <span nz-typography
+        ><mark>
+          <a routerLink="/detail/{{ hero.id }}">
+            {{ hero.name }}
+          </a></mark
+        ></span
+      >
+    </nz-list-item>
+  </nz-list>
+</div>

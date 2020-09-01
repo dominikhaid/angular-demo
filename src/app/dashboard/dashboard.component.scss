@@ -1,0 +1,19 @@
+.ant-carousel img {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ant-carousel::after {
+  width: 100%;
+  content: " ";
+  height: 100%;
+  position: relative;
+  top: -100%;
+}
+
+.ant-carousel img {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,0 +1,17 @@
+<h3 i18n nz-typography nzType="secondary" class="ant-text-center">
+  Top Heroes
+</h3>
+
+<nz-carousel nzAutoPlay>
+  <div nz-carousel-content *ngFor="let hero of heroes">
+    <a
+      [className]="hero.biography.alignment === 'bad' ? 'bad' : 'good'"
+      routerLink="/detail/{{ hero.id }}"
+    >
+      <img [src]="hero.image.url" />
+      <h2 nz-typography>
+        {{ hero.name }}
+      </h2>
+    </a>
+  </div>
+</nz-carousel>

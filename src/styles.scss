@@ -1,0 +1,53 @@
+.ant-layout-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px;
+}
+
+nav {
+  margin-bottom: 2rem;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.ant-carousel {
+  margin: 2rem 0;
+}
+
+.ant-text-center {
+  text-align: center;
+}
+
+.ant-avatar {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.ant-layout-content,
+.ant-layout-header {
+  padding: 2rem;
+}
+
+.ant-layout-content,
+.ant-layout-header,
+.ant-layout-content,
+nav {
+  max-width: 100vw;
+}
+
+.ant-layout-content {
+  width: 98vw;
+}
+@media all and (min-width: 1024px) {
+  .ant-layout-content {
+    margin-left: 4rem;
+    margin-right: 4rem;
+    width: calc(98vw - 8rem);
+  }
+}
+
+nav {
+  padding: 1rem 2rem;
+}
