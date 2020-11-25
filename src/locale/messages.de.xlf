@@ -464,6 +464,18 @@
 					</context>
 				</context-group>
 			</trans-unit>
+						<trans-unit id="1c161c08fb696c0653b3497d2cdcda3db59388b2" datatype="html">
+				<source>
+				HEROES
+				</source>
+				<target>
+					HELDEN
+				</target>
+				<context-group purpose="location">
+					<context context-type="sourcefile">src/app/dashboard/dashboard.component.html</context>
+					<context context-type="linenumber">21</context>
+				</context-group>
+			</trans-unit>
 			<trans-unit id="ef9109aec3e44f69e928c708bbdd3ae7b6174f61" datatype="html">
 				<source>
 					<x id="START_TAG_NZ-LIST-ITEM" ctype="x-nz-list-item" equiv-text="&lt;nz-list-item&gt;" />
