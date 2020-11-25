@@ -15,13 +15,6 @@ import { HeroService } from '../hero.service';
         color: #fff;
         overflow: hidden;
       }
-
-      h3 {
-        color: #fff;
-        margin-bottom: 0;
-        padding-top: 2rem;
-        font-size: 3rem;
-      }
     `,
   ],
 })

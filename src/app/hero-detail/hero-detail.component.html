@@ -1,8 +1,11 @@
 <div *ngIf="hero">
-  <h2 i18n nz-typography nzType="secondary">
+  <div id="bg-img">
+  <img id="bg-img" alt="example" [src]="hero.image.url" />
+</div>
+  <h3 i18n nz-typography nzType="secondary">
     {{ hero.name | uppercase }}
-  </h2>
-  <nz-card nzHoverable style="width: 350px" [nzCover]="coverTemplate">
+  </h3>
+  <nz-card style="max-width: 350px" [nzCover]="coverTemplate" [(class)]="hero.biography.alignment">
     <div class="content" id="heroCardEdit">
       <!--General-->
       <div id="heroGeneral">
@@ -55,6 +58,7 @@
       </button>
     </div>
   </nz-card>
+
   <ng-template #coverTemplate>
     <img alt="example" [src]="hero.image.url" />
   </ng-template>

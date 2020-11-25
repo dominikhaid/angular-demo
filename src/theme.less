@@ -1,6 +1,7 @@
 // @import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
 @import "../node_modules/ng-zorro-antd/ng-zorro-antd.dark.less";
 // @import "~ng-zorro-antd/ng-zorro-antd.compact.less";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,600&display=swap");
 
 @theme: default;
 
@@ -57,9 +58,7 @@
 // Popover background color
 @popover-background: @component-background;
 @popover-customize-border-color: @border-color-split;
-@font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@font-family: "Merriweather Sans", sans-serif;
 @code-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
   monospace;
 @text-color: fade(@white, 65%);
@@ -79,7 +78,7 @@
 
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: "tnum";
-@font-size-base: 14px;
+@font-size-base: 16px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
 @heading-1-size: ceil(@font-size-base * 2.71);
@@ -736,7 +735,7 @@
 @pagination-item-bg: @component-background;
 @pagination-item-size: @height-base;
 @pagination-item-size-sm: 24px;
-@pagination-font-family: Arial;
+@pagination-font-family: @font-family;
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
 @pagination-item-link-bg: @component-background;
@@ -1045,16 +1044,16 @@ nav {
 }
 
 .ng-star-inserted h3 {
-  background: @body-background-light;
+  // background: @body-background-light;
   position: relative;
+  margin-bottom: 2rem;
 }
 
-.ant-carousel::before,
-.ng-star-inserted h3::before {
+.ant-carousel::before {
   content: " ";
   position: absolute;
-  width: 200px;
-  left: 0;
+  width: 30vw;
+  left: -15vw;
   top: 0px;
   height: 100%;
   background: linear-gradient(-90deg, transparent, @body-background);
@@ -1064,8 +1063,8 @@ nav {
 .ng-star-inserted h3::after {
   content: " " !important;
   position: absolute !important;
-  width: 200px !important;
-  right: 0 !important;
+  width: 30vw !important;
+  right: -15vw !important;
   top: 0px !important;
   height: 100% !important;
   background: linear-gradient(90deg, transparent, @body-background) !important;
@@ -1148,15 +1147,30 @@ a.bad:hover {
 a.good:hover {
   color: darken(@primary-color, 20%) !important;
 }
-.ant-card-body p {
+.good.ant-card.ant-card-bordered  .ant-card-body p,
+.bad.ant-card.ant-card-bordered  .ant-card-body p,
+.bad .ant-card-body .anticon,
+.good .ant-card-body .anticon {
+  color: white;
+}
+
+.ant-card-body p{
   color: @info-color;
+}
+
+
+
+
+.bad .ng-star-inserted .ant-divider,
+.good .ng-star-inserted .ant-divider {
+  background: white;
 }
 
 #heroCardEdit p,
 #heroCardEdit label {
   text-align: left;
   margin-bottom: 0.2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 #heroCardEdit p {
@@ -1167,15 +1181,126 @@ a.good:hover {
   flex: 1 1 50%;
 }
 
-#heroCardEdit label {
+.good.ant-card.ant-card-bordered #heroCardEdit label,
+.bad.ant-card.ant-card-bordered #heroCardEdit label {
+  color: @white;
+}
+
+ #heroCardEdit label {
   color: @black;
 }
+
 #heroCardEdit > div {
   display: flex;
   flex-wrap: wrap;
 }
 
 .ant-card-cover.ng-star-inserted {
-  max-height: 250px;
   overflow: hidden;
+}
+
+nav div > div.ant-col {
+  padding: 1rem;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+
+.ant-layout-header h1.ant-typography,
+.ant-typography h1 {
+  font-size: 4rem;
+  font-family: "Carter One", cursive;
+}
+
+h1.ant-typography,
+.ant-typography h1 {
+  font-family: "Carter One", cursive;
+  // color: @info-color;
+  margin: 0;
+}
+
+.ant-layout-header {
+  height: unset !important;
+  background-color: @error-color;
+}
+
+h3.ant-typography,
+.ant-typography h3 {
+  color: @info-color;
+  font-family: "Carter One", cursive;
+  padding-top: 2rem;
+  font-size: 3rem;
+}
+
+#bg-img img {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  z-index: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  opacity: 0.1;
+}
+.ant-layout-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.good.ant-card.ant-card-bordered {
+  background: @primary-color;
+  color: white;
+  border: none;
+}
+
+.bad.ant-card.ant-card-bordered {
+  background: @error-color;
+  color: white;
+  border: none;
+}
+
+.good.ant-card.ant-card-bordered .ant-btn-primary,
+.bad.ant-card.ant-card-bordered .ant-btn-primary {
+  color: #fff;
+  background-color: transparent;
+  border-color: white;
+}
+
+.good.ant-card.ant-card-bordered .ant-btn-primary:hover,
+.bad.ant-card.ant-card-bordered .ant-btn-primary:hover {
+  color: white;
+  border-color: white;
+}
+
+#all-heros {
+  margin: 2rem auto;
+  padding: 2rem;
+  font-size: 3rem;
+  max-width: 900px;
+  border-radius: 2px;
+  text-align: center;
+
+}
+
+#all-heros a {
+color:darken(@error-color,30);
+border: 1px solid;
+border-radius: 2px;;
+padding: 1rem;
+transition-property: color;
+transition-timing-function: ease-out;
+transition-duration: 0.5s;
+}
+
+#all-heros:hover a {
+  color:@error-color
+}
+
+
+@media all and (max-width: 768px) {
+  nav div > div.ant-col,
+  .gutter-row.ant-col.ant-col-16,
+  .gutter-row.ant-col.ant-col-6 {
+    padding: 1rem;
+    max-width: unset !important;
+    flex: 1 1 100% !important;
+  }
 }
